@@ -17,18 +17,29 @@ public class Ejercicio2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int cont=0;
         String numDivisores = "(";
+        int cont=0;
         int numero = Integer.parseInt(JOptionPane.showInputDialog("Introduzca un numero:"));
         for (int i = 1; i < (numero); i++) {
-            cont+=i;
-         
-    }
-      if(cont==numero){
-                System.out.println("es perfecto");
+            if (numero % i == 0) {
+                numDivisores += i;
+                cont+=i;
+                
+                if (i < numero) {
+                    numDivisores += ", ";
+                }
+               
             }
-      else if(cont!=numero){
-                System.out.println("no es perfecto");
-            }  
+            
+        }
+        if(cont==numero){
+                   System.out.println("es perfecto");
+               } else if(cont!=numero){
+                   System.out.println("no es perfecto");
+               }
+        numDivisores += ")";
+        
+
     }
+
 }
