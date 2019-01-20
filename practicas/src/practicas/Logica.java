@@ -19,8 +19,10 @@ public class Logica {
  */
     private String nombre;
     private int edad;
+    
     public Logica() {
-
+        nombre="";
+        edad=0;
     }
     public Logica(String nombre ,int edad) {
          nombre = this.nombre;
@@ -71,7 +73,10 @@ public class Logica {
         return edad;
     }
 
-    
+    public String substring(int beginIndex, int endIndex){
+        return null;
+        
+    }
     
     
 }

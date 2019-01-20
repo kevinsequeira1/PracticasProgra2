@@ -5,6 +5,8 @@
  */
 package practicas;
 //mmn
+
+import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,10 +17,11 @@ public class Ejercicio3 {
 
     public static void main(String[] args) {
         Logica logica = new Logica();
+        App:
         while (true) {
 
             int menu = Integer.parseInt(JOptionPane.showInputDialog("bienbenido introduzca un numero segun su preferencia\n #1 juego de adivinar\n :"
-                    + "                                             #2 registro de nombre y edad :"));
+                    + "                                             #2 registro de nombre y edad\n  #3 para ver si las palabras riman\n #4 salir"));
             switch (menu) {
                 case 1:
 
@@ -56,44 +59,47 @@ public class Ejercicio3 {
                     System.out.println("Bienbenido a registro ");
 
                     Logica matriz[][] = new Logica[2][2];
-
-                    while (true) {
-                        int digite = Integer.parseInt(JOptionPane.showInputDialog("digite #1 para rgistrar personas o 2 para salir "));
-
-                        if (digite == 1) {
-                            String nombre = (JOptionPane.showInputDialog("digite el nombre "));
-                            logica.setNombre(nombre);
-                            logica.getNombre();
-                            int edad = Integer.parseInt(JOptionPane.showInputDialog("digite la edad "));
-                            logica.setEdad(edad);
-                            logica.getEdad();
-
-                            for (int f = 0; f < matriz.length; f++) {
-                                for (int c = 0; c < matriz[f].length; c++) {
-                                    if (matriz[f][c] == null) {
-                                        matriz[f][c] = new Logica(nombre, edad);
-                                    }
-                                }
-
-                            }
-
-                        } else {
-                            for (int f = 0; f < matriz.length; f++) {
-                                for (int c = 0; c < matriz[f].length; c++) {
-
-                                    System.out.print(matriz[f][c]);
-                                    if (c != matriz[f].length - 1) {
-                                        System.out.print("\t");
-                                    }
-
-                                }
-                            }
-                            break;
+                    
+                    String nombre;
+                    int edad;
+                    Scanner info=new Scanner(System.in);
+                    for (int f = 0; f <2; f++) {
+                        for (int c = 0; c <2; c++) {
+                            System.out.println("introduzca un nombre ");
+                            nombre=info.nextLine();
+                            System.out.println("introduzca una edad ");
+                            edad=info.nextInt();
+                            info.nextLine();
+                            Logica datos=new Logica(nombre,edad);
+                            matriz[f][c]=datos;
                         }
                     }
-
+                    for (int f = 0; f <2; f++) {
+                        for (int c = 0; c <2; c++) {
+                            System.out.println("nombre "+matriz[f][c].getNombre()+"edad "+matriz[f][c].getEdad());
+                        }
+                    }
+                case 3:
+                    
+                    String a = (JOptionPane.showInputDialog("digite la primera palabra "));
+                    ;
+                    String b = (JOptionPane.showInputDialog("digite la segunda palabra "));
+                    ;
+                    String cadena1 = new String(a);
+                    String cadena2 = new String(b);
+                    if (cadena1.equals(cadena2)) {
+                        System.out.println("si riman");
+                    }else{
+                        System.out.println("no riman");
+                    }
+                case 4:
+                    
+                    JOptionPane.showMessageDialog(null, "gracias ");
+			break;
+		default:
+			JOptionPane.showMessageDialog(null, menu + " no es una opción válida");
+			break;
             }
-        }
-
     }
+}
 }
