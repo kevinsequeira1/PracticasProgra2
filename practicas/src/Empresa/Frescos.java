@@ -16,7 +16,11 @@ public Frescos(String origen,int dia,int mes,int ano,int lote){
     
 }
 public String getAtributos(){
-        return "fecha de caducidad "+dia+"/"+mes+"/"+ano+" pais de origen "+origen;
+        return "fecha de caducidad "+dia+"/"+mes+"/"+ano+" pais de origen "+origen+" lote "+lote;
     
 }
+public void fechaEnvasado(int dia,int mes,int ano){
+        
+        System.out.println("fecha de envasado= "+dia+"/"+mes+"/"+ano);
+    }
 }

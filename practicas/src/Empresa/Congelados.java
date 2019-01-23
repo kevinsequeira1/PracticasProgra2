@@ -20,13 +20,19 @@ public class Congelados extends Productos{
         return "fecha de caducidad "+dia+"/"+mes+"/"+ano+"lote "+lote+"temperatura recomendada "+temperatura;
         
     }
-    public void cAire(){
+    public void cAire(int n,int o,int c,int v){
+        System.out.println("congelado´por aire porcentaje de nitrogeno %"+n+" porcentaje de oxigeno %"+o+" pocentaje de carbono %"+c+" porcentaje de v´por de agua %"+v);
+    }
+    public void cAgua(int g){
+        System.out.println(" congelado por agua salinidad="+g+" gramos de sal por litro de agua");
         
     }
-    public void cAgua(){
+    public void cNitrogeno(int t){
+        System.out.println("congelado por nitrogeno tiempo de exposicion al nitrogeno "+t+" segundos");
         
     }
-    public void cNitrogeno(){
+    public void fechaEnvasado(int dia,int mes,int ano){
         
+        System.out.println("fecha de envasado= "+dia+"/"+mes+"/"+ano);
     }
 }

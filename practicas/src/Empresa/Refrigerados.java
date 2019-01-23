@@ -15,7 +15,11 @@ public class Refrigerados extends Productos{
         super(dia,mes ,ano,lote,origen);
         this.codigo=codigo;
     }
-    public String Atributos(){
+    public String getAtributos(){
         return "fecha de caducidad "+dia+"/"+mes+"/"+ano+"lote "+lote+"codigo de supervision "+codigo;
+    }
+    public void fechaEnvasado(int dia,int mes,int ano){
+        
+        System.out.println("fecha de envasado= "+dia+"/"+mes+"/"+ano);
     }
 }
