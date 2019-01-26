@@ -21,6 +21,7 @@ public class Jlist extends javax.swing.JDialog {
         initComponents();
         modelo = new DefaultListModel();
         Lista.setModel(modelo);
+        setLocationRelativeTo(null);
     }
 
     /**
