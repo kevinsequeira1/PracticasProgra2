@@ -19,11 +19,13 @@ import javax.swing.JOptionPane;
  * @author estudiante
  */
 public class Contenido {
-        private int b=0;
-        private String placa;
+        private String color;
+        private String marca;
+        private String  placa;
+        private String placa2;
         private String modelo;
         private String vel;
-        private String archivo;
+        private String  archivo;
         private String ruta;
         private String ver;
         Logica lo=new Logica();
@@ -35,19 +37,22 @@ public class Contenido {
     }
     public void Emarcas() throws IOException{
          while (true) {
-            String a = JOptionPane.showInputDialog(("digite marca"));
-            b= Integer.parseInt(JOptionPane.showInputDialog("digite "));
+            String a = "";
+            
             lo.setMarca(a);
             lo.getMarca();
             
             for (int i = 0; i < lista.length; i++) {
-                if(lista[i]==null){
+                if(lista[i]==null || lista[i]!=null){
                     lista[i]=new Logica(a);
                     
                     break;
                 }
                 
             }
+            if(a.equals("a")){
+                    break;
+                }
          }
          
        
@@ -55,8 +60,10 @@ public class Contenido {
     public  void Earchivo(){
         try{
         File archivo = new File("Lista.txt");
+        FileWriter fw = null;
         BufferedWriter bw;
         if (archivo.exists()) {
+           fw = new FileWriter(archivo.getAbsoluteFile(), true); 
             bw = new BufferedWriter(new FileWriter(archivo));
             for (int i = 0; i < lista.length; i++) {
                 if (lista[i] != null) {
@@ -71,6 +78,7 @@ public class Contenido {
             bw.write("Acabo de crear el fichero de texto.");
         }
         bw.close();
+        fw.close();
        }catch(IOException e){
            
        }
@@ -103,21 +111,6 @@ public class Contenido {
         
     }
 
-    public String getPlaca() {
-        return placa;
-    }
-
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
-
-    public String getArchivo() {
-        return archivo;
-    }
-
-    public void setArchivo(String archivo) {
-        this.archivo = archivo;
-    }
 
     public String getRuta() {
         return ruta;
@@ -150,16 +143,56 @@ public class Contenido {
     public void setVer(String ver) {
         this.ver = ver;
     }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public String getPlaca2() {
+        return placa2;
+    }
+
+    public void setPlaca2(String placa2) {
+        this.placa2 = placa2;
+    }
+
+    public String getArchivo() {
+        return archivo;
+    }
+
+    public void setArchivo(String archivo) {
+        this.archivo = archivo;
+    }
     
-    
-    
+   
+
     public void Crear(){
         File creaRuta=new File(ruta);
         File creaArchivo=new File(ruta+archivo);
         try{
         creaRuta.mkdirs();
         Formatter crea=new Formatter(ruta+archivo);
-        crea.format("%s\r\n%s\r\n%s\r\n%s\r\n%s ","placa= "+placa,"modelo= "+modelo,"velocidad = "+vel,"","");
+        crea.format("%s\r\n%s\r\n%s\r\n%s\r\n%s ","placa= "+placa+"-"+placa2,"modelo= "+modelo,"velocidad = "+vel,"marca="+marca,"color="+color);
         crea.close();
             System.out.println("archivo creado ");
         }catch(Exception e){

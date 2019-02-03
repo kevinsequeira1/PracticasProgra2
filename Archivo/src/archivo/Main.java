@@ -29,7 +29,9 @@ public class Main {
         
        Contenido co =new Contenido();
            
-       co.Larchivo();
+       co.Emarcas();
+       co.Lmarcas();
+       co.Earchivo();
     }
     }
 

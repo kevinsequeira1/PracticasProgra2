@@ -13,6 +13,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -48,6 +50,16 @@ public class VerMarcas extends javax.swing.JDialog {
         }
         
     }
+    public void mod() throws IOException{
+        String a="";
+        a=jtxtEs.getText();
+        Contenido co =new Contenido();
+        Logica lo =new Logica();
+        lo.setMarca(a);
+        lo.getMarca();
+        co.Emarcas();
+        co.Earchivo();
+    }
     
 
     
@@ -63,16 +75,20 @@ public class VerMarcas extends javax.swing.JDialog {
     private void initComponents() {
 
         btnAñadir = new javax.swing.JButton();
-        btnCerrar = new javax.swing.JButton();
         btnVermarcas = new javax.swing.JButton();
         btnVerc = new javax.swing.JButton();
         jtxtVer = new javax.swing.JTextField();
+        jtxtEs = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        btnAñadir.setText("Añadir");
-
-        btnCerrar.setText("Cerrar");
+        btnAñadir.setText("Añadir marca");
+        btnAñadir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAñadirMouseClicked(evt);
+            }
+        });
 
         btnVermarcas.setText("ver Marcas");
         btnVermarcas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -88,6 +104,8 @@ public class VerMarcas extends javax.swing.JDialog {
 
         btnVerc.setText("ver colores");
 
+        jLabel1.setText("Para terminar de añadir marcas digite \"a\" y añadir");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,35 +113,37 @@ public class VerMarcas extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnVermarcas)
-                                .addGap(32, 32, 32)
-                                .addComponent(btnVerc))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(63, 63, 63)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnAñadir)
-                                    .addComponent(btnCerrar)))))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addComponent(jtxtVer, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jtxtVer, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnVerc))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(btnVermarcas)
+                                .addGap(99, 99, 99)
+                                .addComponent(btnAñadir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jtxtEs, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jtxtVer, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtxtVer, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAñadir)
                     .addComponent(btnVermarcas)
-                    .addComponent(btnVerc))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCerrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAñadir))
+                    .addComponent(jtxtEs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnVerc)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         pack();
@@ -145,6 +165,14 @@ public class VerMarcas extends javax.swing.JDialog {
         
        
     }//GEN-LAST:event_btnVermarcasActionPerformed
+
+    private void btnAñadirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAñadirMouseClicked
+        try {
+            mod();
+        } catch (IOException ex) {
+            Logger.getLogger(VerMarcas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnAñadirMouseClicked
 
     /**
      * @param args the command line arguments
@@ -190,9 +218,10 @@ public class VerMarcas extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAñadir;
-    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnVerc;
     private javax.swing.JButton btnVermarcas;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField jtxtEs;
     private javax.swing.JTextField jtxtVer;
     // End of variables declaration//GEN-END:variables
 }
