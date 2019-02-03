@@ -6,6 +6,13 @@
 package archivo;
 
 import java.awt.TextArea;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +29,28 @@ public class VerMarcas extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
     }
+    public void Larchivo(){
+         
+         String ver="";
+        try {
+            FileReader archivo1 = new FileReader("Lista.txt");
+            BufferedReader br = new BufferedReader(archivo1);
+            String cadena;
+            while ((cadena = br.readLine()) != null) {
+//               System.out.println("" + cadena);
+                 ver=this.jtxtVer.getText();
+                 this.jtxtVer.setText(""+cadena);
+               
+            }
+            archivo1.close();
+        } catch (Exception ex) {
+
+        }
+        
+    }
+    
+
+    
     
 
     /**
@@ -35,9 +64,9 @@ public class VerMarcas extends javax.swing.JDialog {
 
         btnAñadir = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaVerm = new javax.swing.JTextArea();
-        btnVerm = new javax.swing.JButton();
+        btnVermarcas = new javax.swing.JButton();
+        btnVerc = new javax.swing.JButton();
+        jtxtVer = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -45,72 +74,77 @@ public class VerMarcas extends javax.swing.JDialog {
 
         btnCerrar.setText("Cerrar");
 
-        jTextAreaVerm.setColumns(20);
-        jTextAreaVerm.setRows(5);
-        jTextAreaVerm.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnVermarcas.setText("ver Marcas");
+        btnVermarcas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextAreaVermMouseClicked(evt);
+                btnVermarcasMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTextAreaVerm);
+        btnVermarcas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVermarcasActionPerformed(evt);
+            }
+        });
 
-        btnVerm.setText("ver Marcas");
-        btnVerm.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVermMouseClicked(evt);
-            }
-        });
+        btnVerc.setText("ver colores");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(btnAñadir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
-                .addComponent(btnCerrar)
-                .addGap(103, 103, 103))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(103, 103, 103)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnVermarcas)
+                                .addGap(32, 32, 32)
+                                .addComponent(btnVerc))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnAñadir)
+                                    .addComponent(btnCerrar)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(btnVerm)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(38, 38, 38)
+                        .addComponent(jtxtVer, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnVerm)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
+                .addComponent(jtxtVer, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAñadir)
-                    .addComponent(btnCerrar))
-                .addContainerGap())
+                    .addComponent(btnVermarcas)
+                    .addComponent(btnVerc))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCerrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAñadir))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVermMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVermMouseClicked
+    private void btnVermarcasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVermarcasMouseClicked
         // TODO add your handling code here:
-        
-        Contenido co=new Contenido();
-       String a = jTextAreaVerm.getText();
        
         
-    }//GEN-LAST:event_btnVermMouseClicked
+                Larchivo();
+        
+       
+       
+        
+    }//GEN-LAST:event_btnVermarcasMouseClicked
 
-    private void jTextAreaVermMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextAreaVermMouseClicked
+    private void btnVermarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVermarcasActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jTextAreaVermMouseClicked
+       
+    }//GEN-LAST:event_btnVermarcasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,8 +191,8 @@ public class VerMarcas extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAñadir;
     private javax.swing.JButton btnCerrar;
-    private javax.swing.JButton btnVerm;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaVerm;
+    private javax.swing.JButton btnVerc;
+    private javax.swing.JButton btnVermarcas;
+    private javax.swing.JTextField jtxtVer;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Formatter;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,9 +20,15 @@ import javax.swing.JOptionPane;
  */
 public class Contenido {
         private int b=0;
-        
+        private String placa;
+        private String modelo;
+        private String vel;
+        private String archivo;
+        private String ruta;
+        private String ver;
         Logica lo=new Logica();
         Logica[] lista=new Logica[1000];
+        
         
     public Contenido(){
         
@@ -78,21 +85,86 @@ public class Contenido {
         }
         
     }
-    public String Larchivo(){
-        String a="";
+    public void Larchivo(){
+         
+         
         try {
             FileReader archivo1 = new FileReader("Lista.txt");
             BufferedReader br = new BufferedReader(archivo1);
             String cadena;
             while ((cadena = br.readLine()) != null) {
-//                System.out.println("" + cadena);
-                a=""+cadena;
+               System.out.println("" + cadena);
+                
             }
             archivo1.close();
         } catch (Exception ex) {
 
         }
-        return a;
+        
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public String getArchivo() {
+        return archivo;
+    }
+
+    public void setArchivo(String archivo) {
+        this.archivo = archivo;
+    }
+
+    public String getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public String getVel() {
+        return vel;
+    }
+
+    public void setVel(String vel) {
+        this.vel = vel;
+    }
+
+    public String getVer() {
+        return ver;
+    }
+
+    public void setVer(String ver) {
+        this.ver = ver;
+    }
+    
+    
+    
+    public void Crear(){
+        File creaRuta=new File(ruta);
+        File creaArchivo=new File(ruta+archivo);
+        try{
+        creaRuta.mkdirs();
+        Formatter crea=new Formatter(ruta+archivo);
+        crea.format("%s\r\n%s\r\n%s\r\n%s\r\n%s ","placa= "+placa,"modelo= "+modelo,"velocidad = "+vel,"","");
+        crea.close();
+            System.out.println("archivo creado ");
+        }catch(Exception e){
+            System.out.println("no se pudo");
+        }
     }
     
 }
