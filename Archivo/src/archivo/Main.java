@@ -28,10 +28,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
         
        Contenido co =new Contenido();
-           
-       co.Emarcas();
-       co.Lmarcas();
-       co.Earchivo();
+       Colores col=new Colores();
+       col.Earchivo2();
+       col.Larchivo2();
+      
     }
     }
 

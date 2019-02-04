@@ -28,9 +28,9 @@ public class Vehiculo extends javax.swing.JFrame {
         
         setLocationRelativeTo(null);
 
-        setIconImage(new ImageIcon(getClass().getResource("/imagen/jjj.jpg")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/imagen/sss.jpg")).getImage());
         ((JPanel)getContentPane()).setOpaque(false);
-        ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagen/lam.jpg"));
+        ImageIcon uno=new ImageIcon(this.getClass().getResource("/imagen/sss.jpg"));
         JLabel fondo= new JLabel();
         fondo.setIcon(uno);
         getLayeredPane().add(fondo,JLayeredPane.FRAME_CONTENT_LAYER);
@@ -58,8 +58,9 @@ public class Vehiculo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setFocusable(false);
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/jjj.jpg"))); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/sss.jpg"))); // NOI18N
 
         jMenu3.setText("Opciones de vehiculo");
 
@@ -100,11 +101,13 @@ public class Vehiculo extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 583, Short.MAX_VALUE)
+            .addComponent(fondo)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fondo, javax.swing.GroupLayout.PREFERRED_SIZE, 388, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();

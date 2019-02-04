@@ -23,12 +23,12 @@ public class Colores {
     public Colores(){
         
     }
-    public void Emarcas() throws IOException{
+    public void Ecolor() throws IOException{
          while (true) {
-            String a = JOptionPane.showInputDialog(("digite marca"));
+            String a = JOptionPane.showInputDialog(("digite color"));
              int b = Integer.parseInt(JOptionPane.showInputDialog("digite "));
-            lo.setMarca(a);
-            lo.getMarca();
+            lo.setColor(a);
+            lo.getColor();
             
             for (int i = 0; i < matriz.length; i++) {
                 if(matriz[i]==null){
@@ -42,16 +42,16 @@ public class Colores {
          
        
     }
-    public  void Earchivo(){
+    public  void Earchivo2(){
         try{
-        File archivo = new File("Lista.txt");
+        File archivo = new File("Lista2.txt");
         BufferedWriter bw;
         if (archivo.exists()) {
             bw = new BufferedWriter(new FileWriter(archivo));
             for (int i = 0; i <matriz.length; i++) {
                 if (matriz[i] != null) {
 
-                    bw.write(matriz[i].getMarca() + ", ");
+                    bw.write(matriz[i].getColor() + ", ");
 
                 }
             }
@@ -65,21 +65,21 @@ public class Colores {
            
        }
     }
-    public void Lmarcas() {
+    public void Lcolor() {
         for (int i = 0; i <matriz.length; i++) {
             if (matriz[i] != null) {
-                System.out.println(matriz[i].getMarca());
+                System.out.println(matriz[i].getColor());
 
             }
 
         }
         
     }
-    public void Larchivo(){
+    public void Larchivo2(){
          
          
         try {
-            FileReader archivo1 = new FileReader("Lista.txt");
+            FileReader archivo1 = new FileReader("Lista2.txt");
             BufferedReader br = new BufferedReader(archivo1);
             String cadena;
             while ((cadena = br.readLine()) != null) {
