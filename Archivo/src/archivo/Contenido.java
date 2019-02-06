@@ -192,7 +192,7 @@ public class Contenido {
         try{
         creaRuta.mkdirs();
         Formatter crea=new Formatter(ruta+archivo);
-        crea.format("%s\r\n%s\r\n%s\r\n%s\r\n%s ","placa= "+placa+"-"+placa2,"modelo= "+modelo,"velocidad = "+vel,"marca="+marca,"color="+color);
+        crea.format("%s\r\n%s\r\n%s\r\n%s\r\n%s ","placa= "+placa,"modelo= "+modelo,"velocidad = "+vel,"marca="+marca,"color="+color);
         crea.close();
             System.out.println("archivo creado ");
         }catch(Exception e){

@@ -62,10 +62,7 @@ public class Registrar extends javax.swing.JDialog {
         validar(jtxtPlaca);
         co.setPlaca(placa);
         co.getPlaca();
-        String placa2=jtxtPlaca2.getText()+".registros";
-        validarn(jtxtPlaca2);
-        co.setPlaca2(placa2);
-        co.getPlaca2();
+       
         String modelo=jtxtModelo.getText();
         co.setModelo(modelo);
         co.getModelo();
@@ -87,7 +84,7 @@ public class Registrar extends javax.swing.JDialog {
        
     }
     public void mostrar(){
-        File url = new File(ruta+jtxtPlaca.getText()+".registros"+jtxtPlaca2.getText()+".registros");
+        File url = new File(ruta+jtxtPlaca.getText()+".registros");
         if(url.exists()){
             
             try{
@@ -95,7 +92,6 @@ public class Registrar extends javax.swing.JDialog {
                 Properties mostrar=new Properties();
                 mostrar.load(fil);
                 jtxtPlaca.setText(mostrar.getProperty("placa"));
-                jtxtPlaca2.setText(mostrar.getProperty("placa2"));
                 jtxtModelo.setText(mostrar.getProperty("modelo"));
                 jtxtVelocidad.setText(mostrar.getProperty("velocidad"));
                 jtxtMarca.setText(mostrar.getProperty("marca"));
