@@ -80,7 +80,7 @@ public class Registrar extends javax.swing.JDialog {
         co.getRuta();
         co.getArchivo();
         co.Crear();
-        
+        //
        
     }
     public void mostrar(){
