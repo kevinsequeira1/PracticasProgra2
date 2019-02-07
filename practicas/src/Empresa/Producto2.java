@@ -145,7 +145,7 @@ public class Producto2 extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    //
     /**
      * @param args the command line arguments
      */
