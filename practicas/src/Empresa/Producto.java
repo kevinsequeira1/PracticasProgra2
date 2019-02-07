@@ -17,6 +17,7 @@ public class Producto extends javax.swing.JDialog {
     /**
      * Creates new form Fresco
      */
+    int i;
     public Producto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -232,17 +233,19 @@ public class Producto extends javax.swing.JDialog {
 
     private void jComboTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboTipoActionPerformed
         // TODO add your handling code here:
-        int i=jComboTipo.getSelectedIndex();
+         i=jComboTipo.getSelectedIndex();
          String tipo=jtxtTipo.getText();
        if(i==0){
             tipo="Frescos";
             jtxtPais.setEditable(true);
             jtxtCodigo.setEditable(false);
+            btnNext.setVisible(false);
         }else if(i==1){
             
             tipo="Refrigerados";
             jtxtPais.setEditable(false);
             jtxtCodigo.setEditable(true);
+            btnNext.setVisible(false);
 //            jtxtPais.setEnabled(false); 
         }else if(i==2){
             
@@ -250,19 +253,26 @@ public class Producto extends javax.swing.JDialog {
            tipo="Congelados";
            jtxtPais.setEditable(false);
            jtxtCodigo.setEditable(false);
+           btnNext.setVisible(true);
+           
+           
         }
         jtxtTipo.setText(tipo);
       
     
     }//GEN-LAST:event_jComboTipoActionPerformed
 
+    public int getI() {
+        return i;
+    }
+    
     private void jtxtTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxtTipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jtxtTipoActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
-
+       
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnNextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNextMouseClicked
@@ -270,6 +280,7 @@ public class Producto extends javax.swing.JDialog {
         Producto2 ventana2 = new Producto2 (null, true);
         ventana2.pack();
         ventana2.setVisible(true);
+        
     }//GEN-LAST:event_btnNextMouseClicked
 
     /**
