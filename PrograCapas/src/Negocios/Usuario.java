@@ -5,10 +5,6 @@
  */
 package Negocios;
 
-import Datos.Info;
-import java.io.File;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author estudiante

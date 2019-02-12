@@ -7,23 +7,25 @@ package Negocios;
 
 /**
  *
- * @author estudiante
+ * @author MONGE
  */
 public class Alumno {
     private String nombre;
     private String apellidos;
-    private int nota;
+    private int nota1;
     private int nota2;
     private int nota3;
-    public Alumno(){
-        
-    }
-    public Alumno(String nombre,String apellidos,int nota,int nota2,int nota3){
-        this.nombre=nombre;
-        this.apellidos=apellidos;
-        this.nota=nota;
-        this.nota2=nota2;
-        this.nota3=nota3;
+    private int promedio;
+    private String estado;
+
+    public Alumno(String nombre, String apellidos, int nota1, int nota2, int nota3, int promedio, String estado) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.nota1 = nota1;
+        this.nota2 = nota2;
+        this.nota3 = nota3;
+        this.promedio = promedio;
+        this.estado = estado;
     }
 
     public String getNombre() {
@@ -42,12 +44,12 @@ public class Alumno {
         this.apellidos = apellidos;
     }
 
-    public int getNota() {
-        return nota;
+    public int getNota1() {
+        return nota1;
     }
 
-    public void setNota(int nota) {
-        this.nota = nota;
+    public void setNota1(int nota1) {
+        this.nota1 = nota1;
     }
 
     public int getNota2() {
@@ -65,5 +67,24 @@ public class Alumno {
     public void setNota3(int nota3) {
         this.nota3 = nota3;
     }
+
+    public int getPromedio() {
+        return promedio;
+    }
+
+    public void setPromedio(int promedio) {
+        this.promedio = promedio;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
+    
+    
     
 }
